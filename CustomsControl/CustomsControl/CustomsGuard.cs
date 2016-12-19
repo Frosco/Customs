@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CustomsControl
 {
     public enum WeightClass { light, heavy, truck }
-    static class CumstomsGuard
+    public static class CustomsGuard
     {
         public static int WeightClassBorder { get; private set; } // Under this weight the vehicle is classified as "light", above it is classified "heavy"
         public static Dictionary<WeightClass,int> WeightClassFees { get; private set; }
@@ -16,7 +16,7 @@ namespace CustomsControl
         public static double NightFactor { get; private set; }
         public static HashSet<DateTime> Holidays { get; private set; }
 
-        static CumstomsGuard()
+        static CustomsGuard()
         {
             WeightClassBorder = 1000;
             WeightClassFees = new Dictionary<WeightClass, int>()
@@ -75,6 +75,8 @@ namespace CustomsControl
                 return true;
             }
 
+            
+
             HashSet<DateTime> holidays;
 
             if (moment.Year != DateTime.Now.Year)
@@ -82,7 +84,9 @@ namespace CustomsControl
             else
                 holidays = Holidays;
 
-            return holidays.Contains(moment);
+            var date = moment.Date;
+
+            return holidays.Contains(date);
         }
 
         private static HashSet<DateTime> GetHolidays(DateTime moment)

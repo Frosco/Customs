@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CustomsControl
 {
     public enum vehicleType{ car, truck, motorcycle}
-    class Vehicle
+    public class Vehicle
     {
         public int Weight { get; set; }
         public vehicleType Type { get; set; }
