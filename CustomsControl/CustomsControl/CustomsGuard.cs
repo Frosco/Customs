@@ -75,8 +75,6 @@ namespace CustomsControl
                 return true;
             }
 
-            
-
             HashSet<DateTime> holidays;
 
             if (moment.Year != DateTime.Now.Year)
@@ -95,6 +93,7 @@ namespace CustomsControl
             var holidays = new HashSet<DateTime>();
 
             var easterSunday = EasterSunday(date.Year);
+            var midsummerEvening = MidsummerEvening(date.Year);
 
             //Nyårsdagen
             holidays.Add(new DateTime(date.Year, 1, 1));
@@ -110,14 +109,34 @@ namespace CustomsControl
             holidays.Add(easterSunday.AddDays(40));
             // Sveriges nationaldag
             holidays.Add(new DateTime(date.Year, 6, 6));
+            // Midsommarafton
+            holidays.Add(midsummerEvening);
+            // Julafton
+            holidays.Add(new DateTime(date.Year, 12, 24));
             // Juldagen
             holidays.Add(new DateTime(date.Year, 12, 25));
             // Annandag jul
-            holidays.Add(new DateTime(date.Year, 12, 25));
+            holidays.Add(new DateTime(date.Year, 12, 26));
             // Nyårsafton
             holidays.Add(new DateTime(date.Year, 12, 31));
 
             return holidays;
+        }
+
+        private static DateTime MidsummerEvening(int year)
+        {
+            DateTime date = new DateTime(0);
+
+            for (int i = 0; i < 7; i++)
+            {
+                date = new DateTime(year, 6, 19 + i);
+                if (date.DayOfWeek == DayOfWeek.Friday)
+                {
+                    break;
+                }
+            };
+
+            return date;
         }
 
         // Algorithm source: https://www.codeproject.com/Articles/10860/Calculating-Christian-Holidays

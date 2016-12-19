@@ -129,6 +129,17 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void Case7_MidsummerEvening()
+        {
+            // arrange
+            var car = new Vehicle(1000, vehicleType.motorcycle, false);
+            //act
+            var actual = CustomsGuard.GetFee(car, new DateTime(2016, 6, 24, 19, 0, 0));
+            // assert
+            var expected = 1400;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
         public void Case8_Environmental()
         {
             // arrange
