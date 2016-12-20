@@ -8,7 +8,7 @@ namespace CustomsControl.Test
     public class CustomsGuardGetFeeTest
     {
         [TestMethod]
-        public void Case1_5_Over1000()
+        public void Case1_5_RegularCar_Over1000kg()
         {
             // arrange
             var car = new Vehicle(1100, vehicleType.car, false);
@@ -19,7 +19,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case2_5_Under1000()
+        public void Case2_5_RegularCar_Under1000kg()
         {
             // arrange
             var car = new Vehicle(999, vehicleType.car, false);
@@ -30,7 +30,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case3_Night1()
+        public void Case3_LightCar_EveningTime()
         {
             // arrange
             var car = new Vehicle(900, vehicleType.car, false);
@@ -41,7 +41,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case3_Night2()
+        public void Case3_LightCar_EarlyMorningTime()
         {
             // arrange
             var car = new Vehicle(900, vehicleType.car, false);
@@ -52,7 +52,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case4_Truck()
+        public void Case4_Truck_RegularFee()
         {
             // arrange
             var car = new Vehicle(5000, vehicleType.truck, false);
@@ -63,7 +63,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case6_Motorcycle()
+        public void Case6_Motorcycle_RegularFee()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -74,7 +74,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case7_Weekend1()
+        public void Case7_Motorcycle_Weekend_DayTime()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -85,7 +85,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case7_Weekend2()
+        public void Case7_Motorcycle_Weekend_NightTime()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -96,7 +96,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case7_NationalDay()
+        public void Case7_Motorcycle_NationalDay_NightTime()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -107,7 +107,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case7_Easter2016()
+        public void Case7_Motorcycle_Easter2016_NightTime()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -118,7 +118,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case7_Easter2020()
+        public void Case7_Motorcycle_Easter2020_NightTime()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -129,7 +129,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case7_MidsummerEvening()
+        public void Case7_Motorcycle_MidsummerEvening_NightTime()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
@@ -140,7 +140,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case8_Environmental()
+        public void Case8_Motorcycle_Environmental()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, true);

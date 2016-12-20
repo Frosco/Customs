@@ -82,9 +82,7 @@ namespace CustomsControl
             else
                 holidays = Holidays;
 
-            var date = moment.Date;
-
-            return holidays.Contains(date);
+            return holidays.Contains(moment.Date);
         }
 
         private static HashSet<DateTime> GetHolidays(DateTime moment)
