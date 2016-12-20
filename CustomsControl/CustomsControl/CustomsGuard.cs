@@ -30,7 +30,7 @@ namespace CustomsControl
             HolidayFactor = 2;
             NightFactor = 0.5;
 
-            Holidays = GetHolidays(DateTime.Now);
+            Holidays = GetHolidays(DateTime.Now.Year);
         }
 
         public static double GetFee(Vehicle vehicle, DateTime moment)
@@ -78,45 +78,44 @@ namespace CustomsControl
             HashSet<DateTime> holidays;
 
             if (moment.Year != DateTime.Now.Year)
-                holidays = GetHolidays(moment);
+                holidays = GetHolidays(moment.Year);
             else
                 holidays = Holidays;
 
             return holidays.Contains(moment.Date);
         }
 
-        private static HashSet<DateTime> GetHolidays(DateTime moment)
+        private static HashSet<DateTime> GetHolidays(int year)
         {
-            var date = moment.Date;
             var holidays = new HashSet<DateTime>();
 
-            var easterSunday = EasterSunday(date.Year);
-            var midsummerEvening = MidsummerEvening(date.Year);
+            var easterSunday = EasterSunday(year);
+            var midsummerEvening = MidsummerEvening(year);
 
             //Nyårsdagen
-            holidays.Add(new DateTime(date.Year, 1, 1));
+            holidays.Add(new DateTime(year, 1, 1));
             //Trettondedag jul
-            holidays.Add(new DateTime(date.Year, 1, 6));
+            holidays.Add(new DateTime(year, 1, 6));
             //Långfredagen
             holidays.Add(easterSunday.AddDays(-2));
             //Annandag påsk
             holidays.Add(easterSunday.AddDays(1));
             //Första maj
-            holidays.Add(new DateTime(date.Year, 5, 1));
+            holidays.Add(new DateTime(year, 5, 1));
             // Kristi himmelfärdsdag
             holidays.Add(easterSunday.AddDays(40));
             // Sveriges nationaldag
-            holidays.Add(new DateTime(date.Year, 6, 6));
+            holidays.Add(new DateTime(year, 6, 6));
             // Midsommarafton
             holidays.Add(midsummerEvening);
             // Julafton
-            holidays.Add(new DateTime(date.Year, 12, 24));
+            holidays.Add(new DateTime(year, 12, 24));
             // Juldagen
-            holidays.Add(new DateTime(date.Year, 12, 25));
+            holidays.Add(new DateTime(year, 12, 25));
             // Annandag jul
-            holidays.Add(new DateTime(date.Year, 12, 26));
+            holidays.Add(new DateTime(year, 12, 26));
             // Nyårsafton
-            holidays.Add(new DateTime(date.Year, 12, 31));
+            holidays.Add(new DateTime(year, 12, 31));
 
             return holidays;
         }
