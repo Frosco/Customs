@@ -63,7 +63,7 @@ namespace CustomsControl.Test
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Case6_Motorcycle_RegularFee()
+        public void Case6_MotorcycleHeavy_RegularFee()
         {
             // arrange
             var car = new Vehicle(1000, vehicleType.motorcycle, false);
